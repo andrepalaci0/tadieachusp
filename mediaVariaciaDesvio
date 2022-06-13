@@ -1,0 +1,40 @@
+package Testes;
+
+import java.util.Scanner;
+
+public class mediaVarianciaDesvio {
+    public static void main(String[] args) {
+        Scanner sc1 = new Scanner(System.in);
+        int contMedia = 0;
+        double n = 0;
+        double mediaAdd = 0;
+        System.out.print("Insira os numeros para descobrir a media \nPara acabar a contagem, insira -1\n");
+        while(true){  //encontrando a media
+            n = sc1.nextDouble();
+            if(n == -1 ) break;
+            mediaAdd += n;
+            contMedia++;
+        }
+        double media = mediaAdd/contMedia;
+        System.out.print("Media: ");
+        System.out.println(media);
+        System.out.println();
+        double in = 0;
+        double variancia = 0;
+        double desvio = 0;
+        double auxVari = 0;
+        int contVari = 0;
+        System.out.print("Insira os numeros para achar o Desvio Padrao e Variancia: \n");
+        while (true){
+            in = sc1.nextDouble();
+            if(in == -1)break;
+            auxVari += Math.pow(Math.abs(in - media), 2);
+            contVari++;
+        }
+        variancia = auxVari/(contVari-1);
+        desvio = Math.sqrt(variancia);
+        System.out.print("Variancia: " + variancia + "\n");
+        System.out.println("Desvio Padrao: " + desvio );
+        System.out.println("Media: " + media);
+    }
+}
